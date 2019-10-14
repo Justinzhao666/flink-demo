@@ -73,6 +73,25 @@ tuple就是元组的意思，就是一组数据。flink可以使用groupy 或者
 ## sink
 
 
+# DataStream api 开发
+
+## source
+有几个大类
+- 基于文件的（stream很少有该使用场景）
+- 基于socket的
+- 基于集合的
+- 自定义的
+    - 比如从kafka里面去读取
+    
+### 自定义source
+需要使用addSource的方式添加进去。
+addSource(SourceFunction<OUT> function)
+
+自定义数据源有三种方式
+1. 实现 SourceFunction 针对不可以并行的sources
+2. 实现 ParallelSourceFunction 接口
+3. 继承 RichParallelSourceFunction 对要并行的数据源
+
 
 
 
